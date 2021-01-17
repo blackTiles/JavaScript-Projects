@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+            box-sizing:border-box;
+        }
+        body{
+            background-color: rgb(16, 70, 52);
+        }
+        h1{
+            text-align: center;
+            color: white;
+            padding-top: 50px;
+            padding-bottom: 20px;
+            font-family: sans-serif;
+            font-size: 50px;
+            text-transform: uppercase;
+        }
+        .contain{
+            width:50vw;
+            height:50vh;
+            margin:auto;
+            display:flex;
+            justify-content:space-between;
+            align-items:center;
+            padding: 20px;
+        }
+        .hour, .minute, .second{
+            width: 200px;
+            height:200px;
+            background-color: aliceblue;
+            box-shadow: 1px 1px 20px black;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            font-size: 100px;
+            font-family: sans-serif;
+            font-weight: 600;
+        }
+        @media(max-width: 600px){
+            h1{
+                font-size: 30px;
+            }
+            .contain{
+                flex-direction:column;
+                height: 80vh;
+            }
+        }
+    </style>
+</head>
+<body>
+    <h1>Digital Clock</h1>
+    <div class="contain">
+        <div class="hour" id="hr"></div>
+        <div class="minute" id="min"></div>
+        <div class="second" id="sec"></div>
+    </div>
+    <script>
+        function digitalClock(){
+            var d = new Date();
+            var hour = d.getHours();
+            var minute = d.getMinutes();
+            var seconds = d.getSeconds();
+            document.getElementById('hr').innerHTML=hour;
+            document.getElementById('min').innerHTML=minute;
+            document.getElementById('sec').innerHTML=seconds;
+        }
+        setInterval(digitalClock, 1000);
+    </script>
+</body>
+</html>
